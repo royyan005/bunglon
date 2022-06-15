@@ -1,8 +1,5 @@
 mkdir -p ~/.streamlit/
 
-$PORT = 5000
-echo PORT $PORT
-
 echo "\
 [general]\n\
 email = \"presillia03@gmail.com\"\n\
