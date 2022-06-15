@@ -1,5 +1,6 @@
 mkdir -p ~/.streamlit/
 
+$PORT = 5000
 echo PORT $PORT
 
 echo "\
