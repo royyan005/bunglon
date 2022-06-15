@@ -2,8 +2,6 @@ import streamlit as st # pip install streamlit==0.82.0
 import requests
 import os
 
-port = os.getenv('PORT', default=8000)
-
 def get_data(url):
 	resp = requests.get(url)
 	return resp.json()
