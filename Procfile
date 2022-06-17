@@ -1,1 +1,3 @@
-worker: streamlit run --server.enableCORS false --server.port $PORT main.py
+web: sh setup.sh && streamlit run main.py
+
+#mengkonfigurasi command line yang harus di run

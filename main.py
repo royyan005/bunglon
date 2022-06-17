@@ -6,7 +6,7 @@ def get_data(url):
 	resp = requests.get(url)
 	return resp.json()
 
-base_url = "https://bade.kopas.id/translator?versi=2&mode=2&bahasa={}&text={}"
+base_url = "https://bade.kopas.id/translator?versi=2&mode={}&bahasa={}&text={}"
 
 
 st.set_page_config(page_title='TRANSLASI BAHASA BATAK', layout='wide', initial_sidebar_state='expanded')
@@ -19,31 +19,55 @@ st.title("TRANSLASI BAHASA BATAK")
 
 with st.form(key="search form"):
 
-    search_term = st.text_input("Enter your text here")
+    search_term = st.text_input("Masukkan teks anda disini")
     # text = st.text_area("Enter text:",height=None,max_chars=None,key=None,help="Enter your text here")
 
-    option1 = st.selectbox('Input language',
-                      ('Batak', 'Indonesia'))
+    option1 = st.radio('Bahasa asal', ('Batak', 'Indonesia'))
+    option2 = st.radio('Bahasa tujuan', ('Batak', 'Indonesia'))
 
     value1 = Languages[option1]
-    # value2 = Languages[option2]
+    value2 = Languages[option2]
 
-    submit_search = st.form_submit_button(label='Search')
+    submit_search = st.form_submit_button(label='Translasi')
 
     if submit_search:
         if search_term == "":
-            st.warning('Please **enter text** for translation')
+            st.warning('Mohon masukkan teks untuk translasi')
 
-        else:
+        elif value1 == value2:
+            st.warning('Tidak bisa mentranslasi bahasa yang sama')
+
+        elif value1 == "batak_simalungun":
+            mode = 1
             # Create Search Query
-            search_url = base_url.format(value1,search_term)
-			# st.write(search_url)
+            search_url = base_url.format(mode, value1, search_term)
+            # st.write(search_url)
             data = get_data(search_url)
             # st.success(data)
-            # for i in range(len(data['response']['daerah'])):
-            #     st.success(i)
-            #     result = data['response']['daerah'][i]['k']
-            #     resultfinal = result + result
-            st.success("dalam bahasa {} artinya {}".format(value1,data['response']['daerah'][0]['k']))
+            resultfinal = ""
+            for i in range(len(data['response']['indonesia'])):
+                result = data['response']['indonesia'][i]['k']
+                resultfinal = resultfinal + " " + result
+                
+            # st.success(resultfinal)
+            st.success("dalam bahasa {} artinya {}".format(value2,resultfinal))
+            # translate = translator.translate(text,lang_src=value1,lang_tgt=value2)
+            # st.info(str(translate))
+        
+        elif value1 == "indonesia":
+            mode = 2
+            # Create Search Query
+            search_url = base_url.format(mode, value2, search_term)
+            # st.write(search_url)
+            data = get_data(search_url)
+            # st.success(data)
+            resultfinal = ""
+            for i in range(len(data['response']['daerah'])):
+                # st.write(i)
+                result = data['response']['daerah'][i]['k']
+                resultfinal = resultfinal + " " + result
+                
+            # st.success(resultfinal)
+            st.success("dalam bahasa {} artinya {}".format(value2,resultfinal))
             # translate = translator.translate(text,lang_src=value1,lang_tgt=value2)
             # st.info(str(translate))
