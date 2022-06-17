@@ -1,3 +1,2 @@
-web: sh setup.sh && streamlit run main.py
+web: sh setup.sh && streamlit run app.py
 
-#mengkonfigurasi command line yang harus di run
