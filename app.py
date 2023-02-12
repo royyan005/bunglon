@@ -2,6 +2,23 @@ import streamlit as st # pip install streamlit==0.82.0
 import requests
 import os
 
+import base64
+def add_bg_from_local(image_file):
+    with open(image_file, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read())
+    st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
+        background-size: cover
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+    )
+add_bg_from_local('background.png')  
+
 def get_data(url):
 	resp = requests.get(url)
 	return resp.json()
@@ -9,14 +26,15 @@ def get_data(url):
 base_url = "https://bade.kopas.id/translator?versi=2&mode={}&bahasa={}&text={}"
 
 
-st.set_page_config(page_title='TRANSLASI BAHASA LAMPUNG DIALEK A', layout='wide', initial_sidebar_state='expanded')
+
 
 
 Languages = {'Lampung':'lampung_a','Indonesia':'indonesia'}
 
 
 
-st.title("TRANSLASI BAHASA LAMPUNG DIALEK A")
+st.header("TRANSLASI BAHASA LAMPUNG DIALEK A")  
+st.image('logo.png')
 
 with st.form(key="search form"):
 
@@ -72,3 +90,4 @@ with st.form(key="search form"):
             st.success("dalam bahasa {} artinya {}".format(option2,resultfinal))
             # translate = translator.translate(text,lang_src=value1,lang_tgt=value2)
             # st.info(str(translate))
+            
