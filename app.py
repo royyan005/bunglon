@@ -83,7 +83,8 @@ if choose == "Aksara":
         st.markdown('<p class="font">AKSARA LAMPUNG</p>', unsafe_allow_html=True)    
         st.markdown('<style>body {background-color: #f5f5f5;} p {font-size:20px ;} p {text-align: justify;}</style>', unsafe_allow_html=True)
         kalimat = "Aksara Lampung adalah Bentuk tulisan yang berlaku di daerah Lampung. Pada dasarnya tulisan ini berasal dari aksara Pallawa (India Selatan) yang diperkirakan masuk ke Pulau Sumatera semasa kejayaan Kerajaan Sriwijaya. Macam tulisannya fonetik berjenis suku kata yang merupakan huruf hidup seperti dalam huruf Arab, dengan menggunakan tanda-tanda fathah pada baris atas dan tanda-tanda kasrah pada baris bawah, tetapi tidak menggunakan tanda dammah pada baris depan, melainkan menggunakan tanda di belakang, di mana masing-masing tanda mempunyai nama tersendiri. Pada abad ke IX Masehi para Raja di Sekala Bekhak menciptakan Aksara Lampung atau Had Lampung. Had Lampung dipengaruhi dua unsur yaitu Aksara Pallawa dan Huruf Arab. Aksara Lampung terdiri dari huruf induk, anak huruf, anak huruf ganda dan gugus konsonan, juga terdapat lambing, angka, dan tanda baca. Had Lampung disebut dengan istilah Kaganga ditulis dan dibaca dari kiri ke kanan dengan Huruf Induk berjumlah 20 buah."
-        st.markdown(f"<p>{kalimat}</p>", unsafe_allow_html=True)
+        st.markdown(kalimat, unsafe_allow_html=True)
+
     st.image(profile, width=700)
 
 
@@ -96,7 +97,7 @@ if choose == "Tentang":
         st.markdown('<p class="font">TENTANG KAMI</p>', unsafe_allow_html=True)    
         st.markdown('<style>body {background-color: #f5f5f5;} p {font-size:20px ;} p {text-align: justify;}</style>', unsafe_allow_html=True)
         kalimat = "Tabik pun! Translasi Bahasa Lampung merupakan kamus bahasa Lampung untuk dialek A maupun Dialek O. aplikasi ini dapat melakukan terjemahan bahasa Lampung ke bahasa indonesia atau bahasa indonesia ke bahasa Lampung secara online. Anda dapat mempelajari kata dan kosakata yang ada di dalam bahasa Lampung secara online. Kami juga menyediakan aksara Lampung untuk dipelajari. Aplikasi ini dapat menjadi referensi anda dalam belajar bahasa Lampung. Mari kita lestarikan budaya Lampung dengan tetap belajar dan mengetahui bahasa Lampung."
-        st.markdown(f"<p>{kalimat}</p>", unsafe_allow_html=True)
+        st.markdown(kalimat, unsafe_allow_html=True)
 
 
         
@@ -129,13 +130,13 @@ elif choose == "Translasi":
         submit_search =  st.form_submit_button(label='Translasi')
         if submit_search:
             if search_term == "":
-                st.warning('Mohon masukan teks untuk translasi')
+                st.error('Mohon masukan teks untuk translasi')
             elif value1 == value2:
-                st.warning('Tidak bisa mentranslasi bahasa yang sama')
+                st.error('Tidak bisa mentranslasi bahasa yang sama')
             elif value1 == ("lampung_a") and value2 == ("lampung_o"):
-                st.warning('hanya bisa menterjemahkan Bahasa Lampung -  Bahasa Indonesia,Bahasa Indonesia - Bahasa Lampung')
+                st.error('hanya bisa menterjemahkan Bahasa Lampung -  Bahasa Indonesia,Bahasa Indonesia - Bahasa Lampung')
             elif value1 == ("lampung_o") and value2 == ("lampung_a"):
-                st.warning('hanya bisa menterjemahkan Bahasa Lampung -  Bahasa Indonesia,Bahasa Indonesia - Bahasa Lampung')
+                st.error('hanya bisa menterjemahkan Bahasa Lampung -  Bahasa Indonesia,Bahasa Indonesia - Bahasa Lampung')
 
             elif value1 == "lampung_a":
                 mode = 1
@@ -149,9 +150,14 @@ elif choose == "Translasi":
                     result = data['response']['indonesia'][i]['k']
                     resultfinal = resultfinal + " " + result
                     # st.success(resultfinal)
-                st.success("dalam bahasa {} artinya {}".format(option2,resultfinal))
-                # translate = translator.translate(text,lang_src=value1,lang_tgt=value2)
-                # st.info(str(translate))
+                st.markdown(
+                    f"<div class='st-alert st-alert-success' style='background-color: #ffffb0; font-size: 20px; font-weight: bold;'>Dalam Bahasa {option2} artinya: {resultfinal}</div>",
+                    unsafe_allow_html=True,
+                )
+
+
+
+
 
             elif value1 == "lampung_o":
                 mode = 1
@@ -166,7 +172,10 @@ elif choose == "Translasi":
                     resultfinal = resultfinal + " " + result
                     
                 # st.success(resultfinal)
-                st.success("dalam bahasa {} artinya {}".format(option2,resultfinal))
+                st.markdown(
+                    f"<div class='st-alert st-alert-success' style='background-color: #ffffb0; font-size: 20px; font-weight: bold;'>Dalam Bahasa {option2} artinya: {resultfinal}</div>",
+                    unsafe_allow_html=True,
+                )
                 # translate = translator.translate(text,lang_src=value1,lang_tgt=value2)
                 # st.info(str(translate))
             
@@ -184,7 +193,10 @@ elif choose == "Translasi":
                     resultfinal = resultfinal + " " + result
                     
                 # st.success(resultfinal)
-                st.success("dalam bahasa {} artinya {}".format(option2,resultfinal))
+                st.markdown(
+                    f"<div class='st-alert st-alert-success' style='background-color: #ffffb0; font-size: 20px; font-weight: bold;'>Dalam Bahasa {option2} artinya: {resultfinal}</div>",
+                    unsafe_allow_html=True,
+                )
                 # translate = translator.translate(text,lang_src=value1,lang_tgt=value2)
                 # st.info(str(translate))
                 
