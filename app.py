@@ -67,9 +67,9 @@ with st.sidebar:
                          menu_icon="app-indicator", default_index=0,
                          styles={
         "container": {"padding": "5!important", "background-color": "#fafafa"},
-        "icon": {"color": "orange", "font-size": "25px"}, 
+        "icon": {"color": "#C21616", "font-size": "25px"}, 
         "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
-        "nav-link-selected": {"background-color": "#02ab21"},
+        "nav-link-selected": {"background-color": "#BCE160"},
     }
     )
 
@@ -78,7 +78,7 @@ if choose == "Aksara":
     col1, col2 = st.columns( [100, 0.2])
     with col1:               # To display the header text using css style
         st.markdown(""" <style> .font {
-        font-size:35px ; font-family: 'Cooper Black'; color: #FF9633; text-align: center;} 
+        font-size:35px ; font-family: 'Cooper Black'; color: #C21616; text-align: center;} 
         </style> """, unsafe_allow_html=True)
         st.markdown('<p class="font">AKSARA LAMPUNG</p>', unsafe_allow_html=True)    
         st.markdown('<style>body {background-color: #f5f5f5;} p {font-size:20px ;} p {text-align: justify;}</style>', unsafe_allow_html=True)
@@ -92,7 +92,7 @@ if choose == "Tentang":
     col1, col2 = st.columns( [100, 0.2])
     with col1:               # To display the header text using css style
         st.markdown(""" <style> .font {
-        font-size:35px ; font-family: 'Cooper Black'; color: #FF9633; text-align: center;} 
+        font-size:35px ; font-family: 'Cooper Black'; color: #C21616; text-align: center;} 
         </style> """, unsafe_allow_html=True)
         st.markdown('<p class="font">TENTANG KAMI</p>', unsafe_allow_html=True)    
         st.markdown('<style>body {background-color: #f5f5f5;} p {font-size:20px ;} p {text-align: justify;}</style>', unsafe_allow_html=True)
@@ -107,7 +107,7 @@ elif choose == "Translasi":
     with col1:               # To display the header text using css style
 
         st.markdown(""" <style> .font {
-        font-size:35px ;  font-family: 'Cooper Black'; color: #FF9633;   transform: translateX(8%); text-align: justify;} 
+        font-size:35px ;  font-family: 'Cooper Black'; color: #C21616;   transform: translateX(8%); text-align: justify;} 
         </style> """, unsafe_allow_html=True)
         st.markdown('<p class="font">TRANSLASI BAHASA LAMPUNG</p>', unsafe_allow_html=True)    
     base_url = "https://bade.kopas.id/translator?versi=2&mode={}&bahasa={}&text={}"
