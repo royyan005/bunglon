@@ -95,7 +95,7 @@ if choose == "Tentang":
         </style> """, unsafe_allow_html=True)
         st.markdown('<p class="font">TENTANG KAMI</p>', unsafe_allow_html=True)    
         st.markdown('<style>body {background-color: #f5f5f5;} p {font-size:20px ;} p {text-align: justify;}</style>', unsafe_allow_html=True)
-        kalimat = "Tabik pun! Translasi bahasa Lampung merupakan kamus Lampung untuk dialek A maupun Dialek O. Terjemahan bahasa Lampung ke bahasa indonesia atau bahasa indonesia ke bahasa Lampung secara online. Anda dapat mempelajari kata dan kosakata yang ada di dalam bahasa Lampung secara online. Kami juga menyediakan aksara Lampung untuk dipelajari. Aplikasi ini dapat menjadi referensi anda dalam belajar bahasa Lampung. Mari kita lestarikan budaya Lampung dengan tetap belajar dan mengetahui bahasa Lampung."
+        kalimat = "Tabik pun! Translasi Bahasa Lampung merupakan kamus bahasa Lampung untuk dialek A maupun Dialek O. aplikasi ini dapat melakukan terjemahan bahasa Lampung ke bahasa indonesia atau bahasa indonesia ke bahasa Lampung secara online. Anda dapat mempelajari kata dan kosakata yang ada di dalam bahasa Lampung secara online. Kami juga menyediakan aksara Lampung untuk dipelajari. Aplikasi ini dapat menjadi referensi anda dalam belajar bahasa Lampung. Mari kita lestarikan budaya Lampung dengan tetap belajar dan mengetahui bahasa Lampung."
         st.markdown(f"<p>{kalimat}</p>", unsafe_allow_html=True)
 
 
