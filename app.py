@@ -7,6 +7,7 @@ from streamlit_option_menu import option_menu
 import streamlit.components.v1 as html
 
 
+
 ###logo###
 image = Image.open('logo.png')
 
@@ -66,10 +67,10 @@ with st.sidebar:
                          icons=['translate', 'book','house'],
                          menu_icon="app-indicator", default_index=0,
                          styles={
-        "container": {"padding": "5!important", "background-color": "#fafafa"},
+        "container": {"padding": "5!important", "background-color": "#BCE160"},
         "icon": {"color": "#C21616", "font-size": "25px"}, 
         "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
-        "nav-link-selected": {"background-color": "#BCE160"},
+        "nav-link-selected": {"background-color": "#FDE303"},
     }
     )
 
@@ -154,9 +155,6 @@ elif choose == "Translasi":
                     f"<div class='st-alert st-alert-success' style='background-color: #ffffb0; font-size: 20px; font-weight: bold;'>Dalam Bahasa {option2} artinya: {resultfinal}</div>",
                     unsafe_allow_html=True,
                 )
-
-
-
 
 
             elif value1 == "lampung_o":
