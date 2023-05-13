@@ -9,3 +9,11 @@ enableCORS = false
 [git]
 repo = "https://github.com/presilliasianturi/bunglon"
 branch = "master"
+
+[connections.mysql]
+dialect = "mysql"
+host = "bazuzez3dsd1lpbrkren-mysql.services.clever-cloud.com"
+port = 3306
+database = "bunglon-db"
+username = "uztd8bmy7ir0jp8h"
+password = "aXJIp2NSOt0TbUjzQF3S"

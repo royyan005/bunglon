@@ -5,8 +5,16 @@ import base64
 from  PIL import Image
 from streamlit_option_menu import option_menu
 import streamlit.components.v1 as html
+import mysql.connector
 
-
+mydb = mysql.connector.connect(
+    host="bazuzez3dsd1lpbrkren-mysql.services.clever-cloud.com",
+    user="uztd8bmy7ir0jp8h",
+    password="aXJIp2NSOt0TbUjzQF3S",
+    database="bazuzez3dsd1lpbrkren"
+)
+mycursor = mydb.cursor()
+print("Connected to MySQL database")
 
 ###logo###
 image = Image.open('logo.png')
@@ -152,7 +160,7 @@ elif choose == "Translasi":
                     resultfinal = resultfinal + " " + result
                     # st.success(resultfinal)
                 st.markdown(
-                    f"<div class='st-alert st-alert-success' style='background-color: #ffffb0; font-size: 20px; font-weight: bold;'>Dalam Bahasa {option2} artinya: {resultfinal}</div>",
+                    f"<div class='st-alert st-alert-success' style='background-color: #ffffb0; font-size: 20px; font-weight: bold;'>Dalam Bahasa {option2} artinya: <br>{resultfinal}</div>",
                     unsafe_allow_html=True,
                 )
 
@@ -171,7 +179,7 @@ elif choose == "Translasi":
                     
                 # st.success(resultfinal)
                 st.markdown(
-                    f"<div class='st-alert st-alert-success' style='background-color: #ffffb0; font-size: 20px; font-weight: bold;'>Dalam Bahasa {option2} artinya: {resultfinal}</div>",
+                    f"<div class='st-alert st-alert-success' style='background-color: #ffffb0; font-size: 20px; font-weight: bold;'>Dalam Bahasa {option2} artinya: <br>{resultfinal}</div>",
                     unsafe_allow_html=True,
                 )
                 # translate = translator.translate(text,lang_src=value1,lang_tgt=value2)
@@ -192,10 +200,14 @@ elif choose == "Translasi":
                     
                 # st.success(resultfinal)
                 st.markdown(
-                    f"<div class='st-alert st-alert-success' style='background-color: #ffffb0; font-size: 20px; font-weight: bold;'>Dalam Bahasa {option2} artinya: {resultfinal}</div>",
+                    f"<div class='st-alert st-alert-success' style='background-color: #ffffb0; font-size: 20px; font-weight: bold;'>Dalam Bahasa {option2} artinya: <br>{resultfinal}</div>",
                     unsafe_allow_html=True,
                 )
                 # translate = translator.translate(text,lang_src=value1,lang_tgt=value2)
                 # st.info(str(translate))
-                
+            
+            sql="insert into riwayat_pencarian(bahasa_asal,bahasa_tujuan,kata,hasil_translasi) values (%s,%s,%s,%s)"
+            val=(option1,option2,search_term,resultfinal)
+            mycursor.execute(sql,val)
+            mydb.commit()
                 
