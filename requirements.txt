@@ -5,4 +5,4 @@ streamlit_option_menu==0.3.2
 altair<5
 mysql==0.0.3
 mysql-connector-python==8.0.32
-mysqlclient==2.0.3
+mysqlclient<2
