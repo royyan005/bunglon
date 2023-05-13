@@ -5,9 +5,9 @@ import base64
 from  PIL import Image
 from streamlit_option_menu import option_menu
 import streamlit.components.v1 as html
-import mysql.connector
+import pymysql
 
-mydb = mysql.connector.connect(
+mydb = pymysql.connect(
     host="bazuzez3dsd1lpbrkren-mysql.services.clever-cloud.com",
     user="uztd8bmy7ir0jp8h",
     password="aXJIp2NSOt0TbUjzQF3S",
